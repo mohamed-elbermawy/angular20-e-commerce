@@ -1,0 +1,117 @@
+/* استدعاء تايلويند v4 للمشاريع القياسية */
+@import "tailwindcss";
+
+/* إعدادات خطوط وعناصر الصفحة الأساسية */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter' !important;
+}
+
+body {
+  /* تفعيل وضع الألوان الفاتح كافتراضي */
+  color-scheme: light;
+
+  /* ربط خلفية ونصوص التطبيق بمتغيرات ثيم الماتيريال المحقون */
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  /* تعديل مقاس الخط الكبير */
+  --mat-sys-body-large-size: 0.875rem;
+}
+
+/* تأثير الظل المرتفع */
+.elevated {
+  box-shadow: var(--mat-sys-level2);
+}
+
+/* ألوان عناصر الأخطاء */
+.danger {
+  color: var(--mat-sys-error);
+}
+
+/* حل مشكلة تداخل حواف Tailwind مع حقول إدخال Material */
+.mdc-notched-outline__notch {
+  border-right: none !important;
+}
+
+/* شبكة التصميم المتجاوبة */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   تخصيص أشكال المكونات (Overrides) عبر متغيرات الـ CSS القياسية لبديل الـ Sass
+   ========================================================================== */
+
+/* تخصيص صناديق الحوار (Dialog) */
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-shape: 6px;
+}
+
+/* تخصيص حقول الإدخال لتكون مدمجة (Density -4) */
+mat-form-field {
+  width: 100%;
+  --mat-form-field-container-height: 40px;
+}
+
+/* تخصيص أزرار الأيقونات (Icon Buttons) */
+button[matIconButton] {
+  --mdc-icon-button-state-layer-shape: 6px;
+}
+
+button[matIconButton].danger {
+  --mdc-icon-button-icon-color: var(--mat-sys-error);
+  --mdc-icon-button-state-layer-color: var(--mat-sys-error);
+}
+
+button[matIconButton].small {
+  --mdc-icon-button-icon-size: 24px;
+  --mdc-icon-button-state-layer-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+
+mat-icon.small {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+/* تخصيص الأزرار العادية والملونة */
+button[matButton] {
+  --mdc-filled-button-container-shape: 6px;
+  --mdc-outlined-button-shape: 6px;
+  --mdc-text-button-shape: 6px;
+  --mdc-protected-button-container-shape: 6px;
+  --mdc-tonal-button-container-shape: 6px;
+  
+  height: 36px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+button[matButton='outlined'].danger {
+  --mdc-outlined-button-label-text-color: var(--mat-sys-error);
+  --mdc-outlined-button-outline-color: var(--mat-sys-error);
+  --mdc-outlined-button-state-layer-color: var(--mat-sys-error);
+}
+
+/* تخصيص القائمة الجانبية والقوائم المنسدلة */
+mat-sidenav {
+  --mat-sidenav-container-width: 250px;
+  --mat-sidenav-container-shape: 0px;
+  background-color: white !important;
+  border-right: 1px solid var(--mat-sys-outline-variant);
+}
+
+mat-nav-list {
+  --mdc-list-active-indicator-color: var(--mat-sys-primary);
+  --mdc-list-active-indicator-shape: 6px;
+  --mdc-list-list-item-one-line-container-height: 40px;
+  --mdc-list-list-item-label-text-color: red; /* بناءً على اختيارك الأصلي لتجربة اللون الأحمر */
+}
